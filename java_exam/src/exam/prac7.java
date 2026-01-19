@@ -7,6 +7,9 @@ public class prac7 {
 		int a= 100_000;
 	
 		for(int b=2; b<=a; ++b) {
+			if (b!=2 && b%2==0) {
+				continue;
+			}
 			boolean s =true;
 		for(int j = 2; j < b; j++) {
 			if(b%j ==0) {
