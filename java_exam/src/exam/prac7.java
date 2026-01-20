@@ -8,7 +8,7 @@ public class prac7 {
 	
 		for(int b=2; b<=a; ++b) {
 			if (b!=2 && b%2==0) {
-				continue;
+				//continue;
 			}
 			boolean s =true;
 		for(int j = 2; j < b; j++) {
@@ -21,8 +21,8 @@ public class prac7 {
 		System.out.println(b);
 		}
 	}
-}
 	}
+}
 
 			 
 			

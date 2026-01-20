@@ -2,6 +2,15 @@ package exam;
 
 public class Quiz2 {
 
+	public static int getFligtFare(int age) {
+		if( age >= 19 ) {
+			return 300_000;
+		}
+		else {
+			return 100_000;
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int money = 800_000;
@@ -14,29 +23,9 @@ public class Quiz2 {
 		int totalmoney = 0;
 
 		
-		if(father>19) {
-			totalmoney += adultFlightFare;
-		}
-		
-		else if (father<19) {
-			totalmoney += kidFlightFare;
-		}
-		
-		if(mother>19) {
-			totalmoney += adultFlightFare;
-		}
-		
-		else if (mother<19) {
-			totalmoney += kidFlightFare;
-		}
-		
-		if(doughter>19) {
-			totalmoney += adultFlightFare;
-		}
-		
-		else if (doughter<19) {
-			totalmoney += kidFlightFare;
-		}
+		totalmoney += getFligtFare(father);
+		totalmoney += getFligtFare(mother);
+		totalmoney += getFligtFare(doughter);
 		
 		if(money>totalmoney) {
 		

@@ -6,15 +6,23 @@ public class ArrayExam {
 		
 		int [] scoreArray = new int [7];
 		
-		System.out.println(scoreArray);
 		
-		int score = 60;
-		System.out.println(score);
+		for(int i = 0; i< scoreArray.length; ++i) {
+		scoreArray [i]=(int)(Math.random()*45+1);
 		
-
-		
-		// TODO Auto-generated method stub
-
+			for(int j = 0; j< i; ++j) {
+				scoreArray [j]=(int)(Math.random()*45+1);
+				
+				if( scoreArray [i] == scoreArray [j]) {
+					i--;
+					//s = false;
+					break;
+				}
+			}
+		}
+		for (int i = 0; i<scoreArray.length; ++i){
+		System.out.println(scoreArray[i]+" ");
+		}		
 	}
-
 }
+	
