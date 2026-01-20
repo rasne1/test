@@ -10,8 +10,8 @@ public class Prac16 {
 	}
 	
 	public static void main(String [] args) {
-		double d = f(150,3.00);
-		System.out.println(d);
+		double d = f(150,3);
+		System.out.printf("%.2f",d);
 	}
 
 }
