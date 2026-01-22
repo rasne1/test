@@ -7,8 +7,9 @@ public class Seller { //판매자
 	int money;	//자본금
 	boolean end;
 	
-	public void setInventory(int count) { //재고 수량 
-		inventory= count;
+	public Seller(int inventory) { //재고 수량 
+		this.inventory= inventory;
+		
 	}
 	
 	public void sellInventory(int orderItem) { //판매
