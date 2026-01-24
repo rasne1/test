@@ -1,24 +1,30 @@
 package restaurant;
 
 public class Menu {
+	private final String name;
+	private final int price;
+	private int alcoholIncrease;
+	private int FullnessIncrease;
 	
-	int jjajangmyeon;
-	int beer;
-	
-	
-	public int getisfoodChange() {
-		this.jjajangmyeon +=1000;
-		return this.jjajangmyeon;
+	public Menu(String name,int price, int FullnessIncrease, int alcoholIncrease) {
+		this.name = name;
+		this.price = price;
+		this.alcoholIncrease = alcoholIncrease;
+		this.FullnessIncrease = FullnessIncrease;
 		
 	}
 	
-	public int getAlcoholChange() {
-		this.beer += 10; 
-		return this.beer;
+	public String getName() {
+		return name;
 	}
-	
-	
-	
-	
+	public int getPrice() {
+		return price;
+	}
 
+	public int getAlcoholIncrease() {
+		return alcoholIncrease;
+	}
+	public int getFullnessIncrease() {
+		return FullnessIncrease;
+	}
 }
