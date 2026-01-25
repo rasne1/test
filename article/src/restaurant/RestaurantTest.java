@@ -43,6 +43,8 @@ public class RestaurantTest {
 		
 		Restaurant[] restaurant = {new Restaurant("북경반점", 0, 1800 , 20),
 									new Restaurant("자금성" , 0, 1900 , 20)};
+		
+		//메뉴 
 		Menu menu1 = new Menu("짜장면",7000,800,0);
 		Menu menu2 = new Menu("탕수육",14000,1000,0);
 		Menu menu3 = new Menu("이과두주",9000,0,60);

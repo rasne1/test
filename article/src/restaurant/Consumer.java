@@ -15,28 +15,28 @@ public class Consumer {
 		
 	}
 	
-	public String getName() {
+	public String getName() { //손님 이름
 		return this.name;
 	}
-	public int getWallet() {
+	public int getWallet() { // 손님 지갑
 		return this.wallet;
 	}
 	
-	public int getConsumerFullness() {
+	public int getConsumerFullness() { // 현재 배부름
 		return this.nowFullness;
 	}
 	
-	public double getConsumerDrunkenness() {
+	public double getConsumerDrunkenness() { // 현재 취함
 		return this.nowDrunkenness;
 	}
 
 	
-	public boolean isMoneyEnough(int money) {
+	public boolean isMoneyEnough(int money) { // 지갑에 돈이있는가 판단
 		return this.wallet>money;
 		
 	}
 	
-	public void consumer(Restaurant restaurant, Menu menu, int count) {
+	public void consumer(Restaurant restaurant, Menu menu, int count) { //주문 로직
 
 	    int totalPrice = menu.getPrice() * count;
 	    int myFullness = menu.getFullnessIncrease() * count;

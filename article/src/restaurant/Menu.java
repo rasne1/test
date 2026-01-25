@@ -14,17 +14,17 @@ public class Menu {
 		
 	}
 	
-	public String getName() {
+	public String getName() { // 음식 이름
 		return name;
 	}
-	public int getPrice() {
+	public int getPrice() { //음식의 가격
 		return price;
 	}
 
-	public int getAlcoholIncrease() {
+	public int getAlcoholIncrease() { // 취함 증가량
 		return alcoholIncrease;
 	}
-	public int getFullnessIncrease() {
+	public int getFullnessIncrease() { // 배부름 증가량
 		return FullnessIncrease;
 	}
 }

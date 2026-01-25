@@ -14,29 +14,29 @@ public class Restaurant {
 		this.fullnessLimit = fullnessLimit;
 	}
 	
-	public String getRestaurantName() {
+	public String getRestaurantName() { //식당 이름
 		return this.name;
 	}
 	
-	public int getRestaurantCapital() {
+	public int getRestaurantCapital() { // 식당 자본금
 		return this.capital;
 	}
 	
-	public void setRestaurantCapital(int money) {
+	public void setRestaurantCapital(int money) { //식당 자본금 증가량
 		this.capital += money;
 	}
-	public int getAlcoholLimit() {
+	public int getAlcoholLimit() { // 식당 취함 기준
 		return this.alcoholLimit;
 	}
-	public int getFullnessLimit() {
+	public int getFullnessLimit() { // 식당 배부름 기준
 		return this.fullnessLimit;
 	}
 	
-	public boolean isConsumerFullness(Consumer Consumer,int status) {
+	public boolean isConsumerFullness(Consumer Consumer,int status) { //배부름 판단
 		return this.fullnessLimit >= Consumer.getConsumerFullness()+status;
 		
 	}
-	public boolean isConsumerDrunkenness(Consumer Consumer,double status) {
+	public boolean isConsumerDrunkenness(Consumer Consumer,double status) { //취함 판단
 		return this.alcoholLimit >= Consumer.getConsumerDrunkenness()+status;
 				
 		
