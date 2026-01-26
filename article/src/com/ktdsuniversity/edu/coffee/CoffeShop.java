@@ -6,10 +6,41 @@ public class CoffeShop {
 	Coffe ice;
 	
 	
+	public CoffeShop() {
+		//this.hot = new Coffe("기본 아메리카노",1500,30);
+		//this.hot = new Coffe("아이스 아메리카노",1500,50);
+		this(new Coffe("기본 아메리카노",1500,30)
+			,new Coffe("아이스 아메리카노",1500,50));
+	}
+	
+	
 	public CoffeShop(Coffe hot, Coffe ice) {
 		this.hot = hot;
 		this.ice = ice;
 		
+		
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	
+	
+	public int orderCoffe() {
+		int price = this.orderCoffe(1);
+		return price;
+	}
+	
+	
+	
+	/**
+	 * 메뉴 한개만 주문한다 
+	 * @param menu
+	 * @return
+	 */
+	public int orderCoffe(int menu) {
+		int price  = this.orderCoffe(menu,1);
+		return price;
 		
 	}
 	
