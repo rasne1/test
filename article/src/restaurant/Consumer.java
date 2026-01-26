@@ -38,44 +38,46 @@ public class Consumer {
 	
 	public void consumer(Restaurant restaurant, Menu menu, int count) { //주문 로직
 
-	    int totalPrice = menu.getPrice() * count;
-	    int myFullness = menu.getFullnessIncrease() * count;
-	    double myAlcohol  = menu.getAlcoholIncrease() * count*0.1;
-
-	  
-	    if (!this.isMoneyEnough(totalPrice)) {
-	        System.out.println("주문실패 - 소지금 부족");
-	        return;
-	    }
+		int totalPrice = menu.getPrice() * count;
+		int myFullness = menu.getFullnessIncrease() * count;
+		double myAlcohol  = menu.getAlcoholIncrease() * count*0.1;
 
 	
-	    if (myFullness > 0 && myAlcohol == 0) {
-	        if (!restaurant.isConsumerFullness(this, myFullness)) {
-	            System.out.println("주문실패 - 배가 부릅니다.");
-	            return;
-	        }
+		if (!this.isMoneyEnough(totalPrice)) {
+			System.out.println("주문실패 - 소지금 부족");
+			return;
+		}
 
-	        this.wallet -= totalPrice;
-	        this.nowFullness += myFullness;
-	        System.out.println("주문 성공");
-	        restaurant.setRestaurantCapital(totalPrice);
-	        return;
-	    }
+	
+		if (myFullness > 0 && myAlcohol == 0) {
+			if (!restaurant.isConsumerFullness(this, myFullness)) {
+				System.out.println("주문실패 - 배가 부릅니다.");
+				return;
+			}
+			else {
+			this.wallet -= totalPrice;
+			this.nowFullness += myFullness;
+			System.out.println("주문 성공");
+			restaurant.setRestaurantCapital(totalPrice);
+			return;
+			}
+		}	
 
-	   
-	    if (myAlcohol > 0 && myFullness == 0) {
-	        if (!restaurant.isConsumerDrunkenness(this, myAlcohol)) {
-	            System.out.println("주문실패 - 너무 취했습니다.");
-	            return;
-	        }
-
-	        this.wallet -= totalPrice;
-	        this.nowDrunkenness += myAlcohol;
-	        System.out.println("주문 성공");
-	        restaurant.setRestaurantCapital(totalPrice);
-	        return;
-	    }
-	}
+	
+		if (myAlcohol > 0 && myFullness == 0) {
+			if (!restaurant.isConsumerDrunkenness(this, myAlcohol)) {
+				System.out.println("주문실패 - 너무 취했습니다.");
+				return;
+			}
+			else {
+			this.wallet -= totalPrice;
+			this.nowDrunkenness += myAlcohol;
+			System.out.println("주문 성공");
+			restaurant.setRestaurantCapital(totalPrice);
+			return;
+			}
+		}
+	}	
 
 }
 

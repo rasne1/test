@@ -29,7 +29,7 @@ public class Shop {
 	
 	public void pritAllDrinksInfo() {
 		for(int i; i<this.Drinks.length; i++) {
-			System.out.println()
+			System.out.println()c
 		}
 	}
 	
