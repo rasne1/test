@@ -11,7 +11,7 @@ public class Quiz11720 {
 		int f = 11;
 		String b = "10987654321";
 		char num = b.charAt(0);
-		long c = Long.parseLong("");
+		long c = Long.parseLong(b);
 		int d = 0;
 		for(int a = 1; a<=f; a++) {
 			d+=num;
