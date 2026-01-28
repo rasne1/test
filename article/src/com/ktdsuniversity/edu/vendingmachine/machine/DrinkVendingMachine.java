@@ -5,16 +5,30 @@ import com.ktdsuniversity.edu.vendingmachine.item.Drink;
 public class DrinkVendingMachine {
 
 	private Drink[] drinks;
+	private int money;
+	private int locker;
+	
+	
 	
 	public DrinkVendingMachine( Drink drink1, Drink drink2, Drink drink3, Drink drink4 ) {
 		this.drinks = new Drink[4];
-		this.drinks[0] = drink1;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+		this.drinks[0] = drink1;
 		this.drinks[1] = drink2;
 		this.drinks[2] = drink3;
 		this.drinks[3] = drink4;
 	}
 	
-	public int pressDrinkButton(int drinkNumber, int pressCount) {
+	public int getinsertMoeny() {
+		return this.money;
+	}
+	
+	public Drink[] getDrinks() {
+		return this.drinks;
+	}
+	
+	public int pressDrinkButton(int drinkNumber, int pressCount, int money) {
+		this.money = money;
+		
 		if (drinkNumber < 0 || drinkNumber >= this.drinks.length) {
 			return 0;
 		}
@@ -31,9 +45,11 @@ public class DrinkVendingMachine {
 		}
 		
 		int stock = pressedDrink.getStock();
-		
-		
-		pressedDrink.stock -= pressCount;
+		stock -= pressCount;
+		this.locker +=pressCount*pressedDrink.getPrice();
+		this.money -=pressCount*pressedDrink.getPrice();
+		pressedDrink.setStock(stock);
+//		pressedDrink.stock -= pressCount;
 		return pressedDrink.getPrice() * pressCount;
 	}
 	
@@ -43,16 +59,30 @@ public class DrinkVendingMachine {
 		}
 		
 		// 0 1 2 3
-		
-		
-		
 		Drink pressedDrink = this.drinks[drinkNumber];
-		pressedDrink.stock += quantity;
+		
+		int stock = pressedDrink.getStock();
+		stock += quantity;
+		pressedDrink.setStock(stock);
+	}
+	
+	public void lockerInfo() {
+		System.out.println(this.locker);
+	}
+	
+	public void refund() {
+		if(money == 0) {
+			return;
+		}
+		else {
+			System.out.println(this.money+" 원 환불합니다.");
+			return;
+		}
 	}
 	
 	public void printAllDrinkInfo() {
 		for (int i = 0; i < this.drinks.length; i++) {
-			System.out.println(this.drinks[i].name + " " + this.drinks[i].stock + "개 남았습니다.");
+			System.out.println(this.drinks[i].getName() + " " + this.drinks[i].getStock() + "개 남았습니다.");
 		}
 	}
 	

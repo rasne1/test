@@ -15,21 +15,25 @@ public class Drink {
 	public String getName() {
 		return this.name;
 	}
+	
 	public int getPrice() {
 		return this.price;
 	}
+	
 	public int getStock() {
 		return this.stock;
 	}
 	
-	public void setstock(int stock) {
-		this.stock=stock;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public void setprice(int price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	
-	
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 
 }

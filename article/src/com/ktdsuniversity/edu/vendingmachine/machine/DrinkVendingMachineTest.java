@@ -15,21 +15,25 @@ public class DrinkVendingMachineTest {
 		
 		lotte.printAllDrinkInfo();
 		
-		int price = lotte.pressDrinkButton(0, 3);
-		System.out.println(price);
 		
-		price = lotte.pressDrinkButton(1, 5);
-		System.out.println(price);
+		int price = lotte.pressDrinkButton(0, 3,3000);
+		lotte.refund();
 		
-		price = lotte.pressDrinkButton(2, 15);
-		System.out.println(price);
+		price = lotte.pressDrinkButton(1, 1,2000);
+		lotte.refund();
 		
-		price = lotte.pressDrinkButton(3, 55);
-		System.out.println(price);
+		price = lotte.pressDrinkButton(2, 1,2000);
+		lotte.refund();
 		
-		price = lotte.pressDrinkButton(4, 1);
+		price = lotte.pressDrinkButton(3, 1,2000);
 		System.out.println(price);
+		lotte.refund();
 		
+		price = lotte.pressDrinkButton(6, 1,2000);
+		System.out.println(price);
+		lotte.refund();
+		
+		lotte.lockerInfo();
 		lotte.printAllDrinkInfo();
 		
 		lotte.fillDrink(0, 10);
