@@ -2,63 +2,47 @@ package mart;
 
 
 public class Mart {
-	private String itemName;
-	private int price;
-	private int locker;
-	private int stock;
-	private int refundMoney;
-	
-	
-	public Mart(String itemName,int price,int stock) {
 
-		this.itemName = itemName;
-		this.price = price;
-		this.stock = stock;
+	private int safe;
+	private int money;
+	
+	
+	public Mart() {
 		
 	}
+
 	
-	Buyer buyer = new Buyer();
-	
-	
-	public String getItemName() {
-		return this.itemName;
+	public int getSafe() {
+		return this.safe;
 	}
 	
-	public int getPrice() {
-		return this.price;
-	}
-	
-	public int getLocker() {
-		return this.locker;
-	}
-	
-	public int getStock() {
-		return this.stock;
-	}
-	
-	public void sellItem(int quantity ) {
-	
-		if(quantity<stock) {
+
+	public void sell(Buyer buyer,Common common,int quantity) {
+		int originalMoney = buyer.getWallet();
+		if(common.getStock()<quantity) {
 			System.out.println("재고부족");
+			return;
 			
 		}
 		else {
-			if(buyer.getWallet()>this.price*quantity) {
-				
+			if(buyer.getWallet()>common.getPrice()*quantity) {
+				System.out.println("구매성공");
+				common.decreaseStock(quantity);
+				buyer.decreaseWallet(common.getPrice()*quantity);
+				this.safe +=common.getPrice()*quantity;
+				this.money =originalMoney-(common.getPrice()*quantity);
 			}
 			
 		}
-		this.stock -=quantity;
-		this.locker+=this.price*quantity;
-		this.refundMoney +=this.price*quantity;
+		
 	}
 	
 	public void refund() {
-		if(refundMoney == 0) {
+		if(this.money == 0) {
 			return;
 		}
 		else {
-			System.out.println(this.refundMoney+" 원 환불합니다.");
+			System.out.println("잔돈 "+this.money+" 원 입니다.");
 			return;
 		}
 	}

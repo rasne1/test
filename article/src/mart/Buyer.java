@@ -6,12 +6,22 @@ public class Buyer {
 	private String customer;
 	private int wallet;
 	private int point;
+	private int quantity;
 	
 	
-	public Buyer() {
+	public Buyer(String customer, int wallet, int point,int quantity) {
 		this.customer = customer;
 		this.wallet = wallet;
 		this.point = point;
+		this.quantity = quantity;
+	}
+	
+	public Buyer() {
+		
+	}
+	
+	public String getCustomerName() {
+		return this.customer;
 	}
 	
 	public int getWallet() {
@@ -21,6 +31,17 @@ public class Buyer {
 	public int getPoint() {
 		return this.point;
 	}
+	
+	public int getQuantity() {
+		return this.quantity;
+	}
+	
+	public void decreaseWallet(int amount) {
+		this.wallet-=amount;
+		
+	}
+	
+	
 	
 	
 	
