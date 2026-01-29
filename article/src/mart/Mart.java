@@ -3,49 +3,37 @@ package mart;
 
 public class Mart {
 
-	private int safe;
-	private int money;
+	private int change;
 	
 	
-	public Mart() {
-		
-	}
-
 	
-	public int getSafe() {
-		return this.safe;
-	}
-	
-
-	public void sell(Buyer buyer,Common common,int quantity) {
+	public int sell(Buyer buyer,Common common, int quantity) {
 		int originalMoney = buyer.getWallet();
+		int amount = 0;
 		if(common.getStock()<quantity) {
 			System.out.println("재고부족");
-			return;
-			
+			return 0;
+		}
+		else if(buyer.getWallet()<(common.getPrice()*quantity)) {
+			System.out.println("잔액부족");
+			return 0;
 		}
 		else {
-			if(buyer.getWallet()>common.getPrice()*quantity) {
-				System.out.println("구매성공");
-				common.decreaseStock(quantity);
-				buyer.decreaseWallet(common.getPrice()*quantity);
-				this.safe +=common.getPrice()*quantity;
-				this.money =originalMoney-(common.getPrice()*quantity);
+			amount = (common.getPrice()*quantity);
+			buyer.decreaseWallet(amount);
+			common.decreaseStock(quantity);
+			this.change = originalMoney-amount;
+			if(this.change==0) {
+				return 0;
 			}
-			
+			else {
+				System.out.println("거스름돈 : "+change+" 입니다.");
+			}
+			return amount;
 		}
 		
+			
 	}
 	
-	public void refund() {
-		if(this.money == 0) {
-			return;
-		}
-		else {
-			System.out.println("잔돈 "+this.money+" 원 입니다.");
-			return;
-		}
-	}
-
 	
 }

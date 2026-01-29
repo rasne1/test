@@ -36,6 +36,15 @@ public class Buyer {
 		return this.quantity;
 	}
 	
+	public void usePoint(int point) {
+		this.point -=point;
+	}
+	
+	public int addPoint(int point) {
+		return this.point +=point;
+	}
+	
+	
 	public void decreaseWallet(int amount) {
 		this.wallet-=amount;
 		
