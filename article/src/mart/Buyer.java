@@ -7,18 +7,18 @@ public class Buyer {
 	private int wallet;
 	private int point;
 	private int quantity;
+	private int payMoney;
+	private int grade;
 	
 	
-	public Buyer(String customer, int wallet, int point,int quantity) {
+	public Buyer(String customer, int wallet, int point,int quantity,int grade) {
 		this.customer = customer;
 		this.wallet = wallet;
 		this.point = point;
 		this.quantity = quantity;
+		this.grade = grade;
 	}
 	
-	public Buyer() {
-		
-	}
 	
 	public String getCustomerName() {
 		return this.customer;
@@ -36,20 +36,50 @@ public class Buyer {
 		return this.quantity;
 	}
 	
-	public void usePoint(int point) {
+	public void addPayMoney(int total) {
+		 this.payMoney =total;
+		
+		
+	}
+	public int payMoney() {
+		return this.payMoney;
+	}
+	
+	
+	public void decreasePoint(int point) {
 		this.point -=point;
 	}
+	
 	
 	public int addPoint(int point) {
 		return this.point +=point;
 	}
 	
 	
-	public void decreaseWallet(int amount) {
-		this.wallet-=amount;
+	public int decreaseWallet(int amount) {
+		this.wallet -=amount;
+		return this.wallet;
 		
 	}
 	
+	public void getGrade() {
+		if(this.grade==0) {
+			System.out.println("등급 : 일반");
+		}
+		else if (this.grade==1) {
+			System.out.println("등급 : Vip");
+		}
+		else if(this.grade==2) {
+			System.out.println("등급 : VVip");
+		}
+		
+	}
+	
+	public int getGradeValue() {
+		return this.grade;
+	}
+	
+
 	
 	
 	
