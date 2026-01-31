@@ -1,5 +1,9 @@
 package restaurant;
 
+import restaurant.exception.CashException;
+import restaurant.exception.DrunkenException;
+import restaurant.exception.FullException;
+
 public class Consumer {
 	private String name;
 	private int wallet;
@@ -44,15 +48,13 @@ public class Consumer {
 
 	
 		if (!this.isMoneyEnough(totalPrice)) {
-			System.out.println("주문실패 - 소지금 부족");
-			return;
+			throw new CashException("소지금 부족");
 		}
 
 	
 		if (myFullness > 0 && myAlcohol == 0) {
 			if (!restaurant.isConsumerFullness(this, myFullness)) {
-				System.out.println("주문실패 - 배가 부릅니다.");
-				return;
+				throw new FullException("배가 너무 부릅니다"); 
 			}
 			else {
 			this.wallet -= totalPrice;
@@ -66,8 +68,8 @@ public class Consumer {
 	
 		if (myAlcohol > 0 && myFullness == 0) {
 			if (!restaurant.isConsumerDrunkenness(this, myAlcohol)) {
-				System.out.println("주문실패 - 너무 취했습니다.");
-				return;
+				throw new DrunkenException("너무 취했습니다.");
+				
 			}
 			else {
 			this.wallet -= totalPrice;

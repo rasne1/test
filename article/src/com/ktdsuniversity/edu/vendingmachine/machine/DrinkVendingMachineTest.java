@@ -11,6 +11,7 @@ public class DrinkVendingMachineTest {
 		Drink 핫식스 = new Drink("핫식스", 1300, 10);
 		Drink 밀키스 = new Drink("밀키스", 1400, 5);
 		
+		
 		DrinkVendingMachine lotte = new DrinkVendingMachine(박카스, 몬스터, 핫식스, 밀키스);
 		
 		lotte.printAllDrinkInfo();

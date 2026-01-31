@@ -1,5 +1,9 @@
 package restaurant;
 
+import restaurant.exception.CashException;
+import restaurant.exception.DrunkenException;
+import restaurant.exception.FullException;
+
 public class RestaurantTest {
 	/*식당test
 	*손님이 메뉴판을 보고 고른다
@@ -66,7 +70,25 @@ public class RestaurantTest {
 			System.out.println("현재 배부름도 : "+consumer[0].getConsumerFullness()+"\n현재 취함도 : "+consumer[0].getConsumerDrunkenness());
 			System.out.println(restaurant[0].getRestaurantName()+" 기준");
 			System.out.println("배부름 : "+restaurant[0].getFullnessLimit()+"\n취함 : "+restaurant[0].getAlcoholLimit());
-			consumer[0].consumer(restaurant[0],menus[selectMenu1],1);
+			try{
+				consumer[0].consumer(restaurant[0],menus[selectMenu1],1);
+			}
+			catch (FullException e){
+				System.out.println(e.getMessage());
+			}
+			catch (DrunkenException e){
+				System.out.println(e.getMessage());
+			}
+			catch (CashException e){
+				System.out.println(e.getMessage());
+			}
+			catch (NullPointerException e) {
+				System.out.println("시스템 오류");
+			}
+			catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("잘못 선택");
+			}
+			
 			
 		}
 		for(int a=0; a<menus2.length; a++) {
@@ -77,8 +99,24 @@ public class RestaurantTest {
 			System.out.println("현재 배부름도 : "+consumer[1].getConsumerFullness()+"\n현재 취함도 : "+consumer[1].getConsumerDrunkenness());
 			System.out.println(restaurant[1].getRestaurantName()+" 기준");
 			System.out.println("배부름 : "+restaurant[1].getFullnessLimit()+"\n취함 : "+restaurant[1].getAlcoholLimit());
-			consumer[1].consumer(restaurant[1],menus2[selectMenu2],1);
-			
+			try{
+				consumer[1].consumer(restaurant[1],menus2[selectMenu2],1);
+			}
+			catch (FullException e){
+				System.out.println(e.getMessage());
+			}
+			catch (DrunkenException e){
+				System.out.println(e.getMessage());
+			}
+			catch (CashException e){
+				System.out.println(e.getMessage());
+			}
+			catch (NullPointerException e) {
+				System.out.println("시스템 오류");
+			}
+			catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("잘못 선택");
+			}
 		}
 		for(int a=0; a<menus.length; a++) {
 			int selectMenu3 = (int)(Math.random()*4);
@@ -88,7 +126,25 @@ public class RestaurantTest {
 			System.out.println("현재 배부름도 : "+consumer[2].getConsumerFullness()+"\n현재 취함도 : "+consumer[2].getConsumerDrunkenness());
 			System.out.println(restaurant[0].getRestaurantName()+" 기준");
 			System.out.println("배부름 : "+restaurant[0].getFullnessLimit()+"\n취함 : "+restaurant[0].getAlcoholLimit());
-			consumer[2].consumer(restaurant[0],menus[selectMenu3],1);
+			try{
+				consumer[2].consumer(restaurant[0],menus[selectMenu3],1);
+			}
+			catch (FullException e){
+				System.out.println(e.getMessage());
+			}
+			catch (DrunkenException e){
+				System.out.println(e.getMessage());
+			}
+			catch (CashException e){
+				System.out.println(e.getMessage());
+			}
+			catch (NullPointerException e) {
+				System.out.println("시스템 오류");
+			}
+			catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("잘못 선택");
+			}
+			
 			
 		}
 		
