@@ -10,12 +10,12 @@ public class test2 {
 		Department department = new Department();
 		
 		Common[] common = {new Common("식자재",3000,30),
-				   		   new Common("과자",2000,20),
+				   		   new Common("과자",3000,20),
 				   		   new Common("음료",4500,50),
 				   		   new Common("주류",6000,80)};
 
 		Buyer[] buyer = {new Buyer("고객1",50_000,200,5,0),
-				 		 new Buyer("고객2",70_000,10000,2,0),
+				 		 new Buyer("고객2",2000,1000,2,0),
 				 		 new Buyer("고객3",30_000,20000,3,0),
 				 		 new Buyer("고객4",30_000,30000,3,1),
 				 		 new Buyer("고객5",30_000,40000,3,2)};

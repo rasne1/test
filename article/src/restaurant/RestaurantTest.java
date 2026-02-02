@@ -1,5 +1,8 @@
 package restaurant;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import restaurant.exception.CashException;
 import restaurant.exception.DrunkenException;
 import restaurant.exception.FullException;
@@ -40,7 +43,7 @@ public class RestaurantTest {
 	*/
 	
 	public static void main(String[]args) {
-		
+		List<Menu>.consumer = new ArrayList
 		Consumer [] consumer = {new Consumer("고객1",32000, 0, 0),
 								new Consumer("고객2",20000, 0, 0),
 								new Consumer("고객3",21000,0, 0)};
