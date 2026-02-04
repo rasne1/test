@@ -3,18 +3,18 @@ package restaurant;
 public class Restaurant {
 	
 	private int capital;
-	private String name;
+	private Res name;
 	private int alcoholLimit;
 	private int fullnessLimit;
 	
-	public Restaurant(String name, int capital, int fullnessLimit, int alcoholLimit  ) {
+	public Restaurant(Res name, int capital, int fullnessLimit, int alcoholLimit  ) {
 		this.name = name;
 		this.capital = capital;
 		this.alcoholLimit = alcoholLimit;
 		this.fullnessLimit = fullnessLimit;
 	}
 	
-	public String getRestaurantName() { //식당 이름
+	public Res getRestaurantName() { //식당 이름
 		return this.name;
 	}
 	

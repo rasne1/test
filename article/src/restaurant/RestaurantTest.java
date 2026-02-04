@@ -43,24 +43,23 @@ public class RestaurantTest {
 	*/
 	
 	public static void main(String[]args) {
-		List<Menu>.consumer = new ArrayList
 		Consumer [] consumer = {new Consumer("고객1",32000, 0, 0),
 								new Consumer("고객2",20000, 0, 0),
 								new Consumer("고객3",21000,0, 0)};
 		
-		Restaurant[] restaurant = {new Restaurant("북경반점", 0, 1800 , 20),
-									new Restaurant("자금성" , 0, 1900 , 20)};
+		Restaurant[] restaurant = {new Restaurant(Res.북경반점, 0, 1800 , 20),
+									new Restaurant(Res.자금성, 0, 1900 , 20)};
 		
 		//메뉴 
-		Menu menu1 = new Menu("짜장면",7000,800,0);
-		Menu menu2 = new Menu("탕수육",14000,1000,0);
-		Menu menu3 = new Menu("이과두주",9000,0,60);
-		Menu menu4 = new Menu("연태고량주",8000,0,30);
+		Menu menu1 = new Menu(ResMenu.짜장면,7000,800,0);
+		Menu menu2 = new Menu(ResMenu.탕수육,14000,1000,0);
+		Menu menu3 = new Menu(ResMenu.이과두주,9000,0,60);
+		Menu menu4 = new Menu(ResMenu.연태고량주,8000,0,30);
 						
-		Menu menu5 = new Menu("짜장면",8000,700,0);
-		Menu menu6 = new Menu("탕수육",12000,1200,0);
-		Menu menu7 = new Menu("이과두주",7000,0,70);
-		Menu menu8 = new Menu("연태고량주",8000,0,20);
+		Menu menu5 = new Menu(ResMenu.짜장면,8000,700,0);
+		Menu menu6 = new Menu(ResMenu.탕수육,12000,1200,0);
+		Menu menu7 = new Menu(ResMenu.이과두주,7000,0,70);
+		Menu menu8 = new Menu(ResMenu.연태고량주,8000,0,20);
 		Menu[] menus = {menu1, menu2,menu3,menu4};
 		Menu[] menus2 = {menu5,menu6,menu7,menu8};
 		

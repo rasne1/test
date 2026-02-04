@@ -1,12 +1,12 @@
 package restaurant;
 
 public class Menu {
-	private final String name;
+	private final ResMenu name;
 	private final int price;
 	private int alcoholIncrease;
 	private int FullnessIncrease;
 	
-	public Menu(String name,int price, int FullnessIncrease, int alcoholIncrease) {
+	public Menu(ResMenu name,int price, int FullnessIncrease, int alcoholIncrease) {
 		this.name = name;
 		this.price = price;
 		this.alcoholIncrease = alcoholIncrease;
@@ -14,7 +14,7 @@ public class Menu {
 		
 	}
 	
-	public String getName() { // 음식 이름
+	public ResMenu getName() { // 음식 이름
 		return name;
 	}
 	public int getPrice() { //음식의 가격

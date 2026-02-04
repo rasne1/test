@@ -1,85 +1,85 @@
 package com.ktdsuniversity.edu.generics.airport;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
+
+import com.ktdsuniversity.edu.generics.collections.reservation.Seat;
 
 public class Airport {
+
+	private Map<String, List<Seat>> airplanePlan;
 	
-
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		List<AirPlane> airplanes = new ArrayList<>();
-		
-		List<Boolean> seats0002 = new ArrayList<>();
-		seats0002.add(true);
-		seats0002.add(true);
-		seats0002.add(true);
-		seats0002.add(true);
-		seats0002.add(false);
-		seats0002.add(true);
-		seats0002.add(true);
-		seats0002.add(true);
-		seats0002.add(true);
-		airplanes.add(new AirPlane("0002",seats0002));
-		
-		List<Boolean> seats0003 = new ArrayList<>();
-		seats0003.add(false);
-		seats0003.add(false);
-		seats0003.add(false);
-		seats0003.add(false);
-		seats0003.add(false);
-		seats0003.add(false);
-		seats0003.add(false);
-		seats0003.add(false);
-		seats0003.add(false);
-		airplanes.add(new AirPlane("0003",seats0003));
-		
-		while(true) {
-			System.out.println("비행기편의 이름을 입력하면, 좌석 현황을 볼수있습니다.");
-			System.out.println("비행기 편의 이름을 입력하세요 : ");
-			String input = sc.nextLine();
-			
-			AirPlane selected = null;
-			
-			for(int i = 0; i<airplanes.size(); i++) {
-				AirPlane plane = airplanes.get(i);
-				if(plane.getFlight().equals(input)) {
-					selected = plane;
-					break;
-				}
-			
-			}
-			if(selected == null) {
-				System.out.println(input+" 편은 존재하지 않습니다.");
-				continue;
-			}
-			
-			System.out.println("\n\""+selected.getFlight()+"\"편의 좌석 현황입니다.");
-			printSeats(selected.getSeats());
-			}
-			
-			
-			
-		}
-		
-		
-		
-		public static void printSeats(List<Boolean> seats) {
-			for(int i = 0; i<seats.size(); i++) {
-				System.out.println((i+1)+ " : ");
-				if(seats.get(i)) {
-					System.out.println("o");
-				}
-				else {
-					System.out.println("x");
-				}
-			}
-			System.out.println();
-		
+	public Airport() {
+		airplanePlan = new HashMap<>();
 	}
-
+	
+	public void addPlan(String airplaneName, List<Seat> seats) {
+		this.airplanePlan.put(airplaneName, seats);
+	}
+	
+	public boolean havePlaneName(String airplaneName) {
+		List<Seat> seats = this.airplanePlan.get(airplaneName);
+		if (seats == null) {
+			return false;
+		}
+		return true;
+	}
+	
+	public void printPlanes() {
+		int remainSeatCount = 0;
+		// airplanePlan = {"0002"=List<Seat>, "0003"=List<Seat>}
+		// airplanePlan.keySet() ==> Set<String> = ["0002", "0003"]
+		// mac : Option + Shift + R
+		// windows: Alt + Shift + R
+		for (String key: this.airplanePlan.keySet()) {
+			remainSeatCount = 0;
+			for ( Seat seat: this.airplanePlan.get(key) ) {
+				if (! seat.getIsReserved() ) {
+					remainSeatCount++;
+				}
+			}
+			System.out.println("\"" + key + "편\" 예매가능 좌석 수: " + remainSeatCount);
+		}
+	}
+	
+	public void printSeats(String airplaneName) {
+		List<Seat> seats = this.airplanePlan.get(airplaneName);
+		System.out.println("\"" + airplaneName + "\"편의 좌석 현황입니다. (O: 예약 가능, X: 예약 불가능)");
+		for (Seat seat : seats) {
+			System.out.print(seat);
+		}
+		System.out.println();
+	}
+	
+	public boolean haveRemainSeat(String airplaneName) {
+		List<Seat> seats = this.airplanePlan.get(airplaneName);
+		for (Seat seat: seats) {
+			if (!seat.getIsReserved()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean canReserveSeat(String airplaneName, int seatNum) {
+		List<Seat> seats = this.airplanePlan.get(airplaneName);
+		for (Seat seat: seats) {
+			if (seat.getNum() == seatNum && seat.getIsReserved()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public void reserveSeat(String airplaneName, int seatNum) {
+		List<Seat> seats = this.airplanePlan.get(airplaneName);
+		for (Seat seat: seats) {
+			if (seat.getNum() == seatNum) {
+				seat.setIsReserved(true);
+				return;
+			}
+		}
+	}
+	
 }
