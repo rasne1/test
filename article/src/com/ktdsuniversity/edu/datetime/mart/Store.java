@@ -30,27 +30,28 @@ public class Store {
 		 * "소비기한이 지나 판매하지 않습니다" 를 출력.
 		 */
 		
-		LocalDate tempexpireDate = null;
+		LocalDate tempExpireDate = null;
 		for(Item i : this.items) {
-			tempexpireDate = LocalDate.parse(i.getExpireDate().toString());
-			tempexpireDate.withYear(LocalDate.now().getYear()); 
+			tempExpireDate = LocalDate.parse(i.getExpireDate().toString());
+			tempExpireDate = tempExpireDate.withYear(LocalDate.now().getYear()); 
 			
 			
 			if(base == Base.FUTURE) { //소비기한 3일 이내
-				if(tempexpireDate.isAfter(LocalDate.now())
-						&& tempexpireDate.isBefore(LocalDate.now().plusDays(4)));
-				System.out.println("가능한 빨리 드세요." + i);
+				if(tempExpireDate.isAfter(LocalDate.now())
+						&& tempExpireDate.isBefore(LocalDate.now().plusDays(4))) {
+					System.out.println("가능한 빨리 드세요." + i);
+				}
 			}
 			
 			else if(base == Base.NOW) { //소비기한 당일
-				if(tempexpireDate.equals(LocalDate.now())) {
+				if(tempExpireDate.equals(LocalDate.now())) {
 					System.out.println("오늘까지 드세요" + i);
 				}
 				
 			}
 			else if(base == Base.PAST) { // 소비기한 지남
-				if(tempexpireDate.isBefore(LocalDate.now())
-						&&tempexpireDate.isAfter(LocalDate.now().minusDays(4))){
+				if(tempExpireDate.isBefore(LocalDate.now())
+						&&tempExpireDate.isAfter(LocalDate.now().minusDays(4))){
 					System.out.println("소비기한이 지나 판매하지 않습니다." + i);
 				}
 			}
