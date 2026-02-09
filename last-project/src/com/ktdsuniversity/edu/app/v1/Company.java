@@ -1,0 +1,52 @@
+package com.ktdsuniversity.edu.app.v1;
+
+public class Company {
+	
+	
+	private String companyName;
+	
+	
+	/*
+	 * 직급 ( 사원 대리 과장 차장 부장 이사 대표)
+	 */
+	
+	
+	private String job;
+	
+	/**
+	 * 근무중인 회사의 주소
+	 */
+	
+	private String address;
+	
+	
+	
+	public String getCompanyName() {
+		return companyName;
+	}
+	
+	
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	
+	public String getJob() {
+		return job;
+	}
+	
+	public void setJob(String job) {
+		this.job = job;
+	}
+	
+}
